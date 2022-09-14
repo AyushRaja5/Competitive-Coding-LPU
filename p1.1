@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+string isPrime(int N){
+    if(N==2 || N==1) return "No";
+    for(int i = 2;i*i<=N;i++){
+        if(N%i==0) return "Yes";
+    }
+    return "No";
+}
+
+
+int main() {
+	int T;
+	cin>>T;
+	while(T--){
+		int N;
+		cin>>N;
+		cout<<isPrime(N)<<endl;
+	}
+    
+}
