@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int soe(int n){
+	int ans=0;
+    bool prime[n + 1];
+    memset(prime, true, sizeof(prime));
+ 
+    for (int p = 2; p * p <= n; p++) {
+        if (prime[p] == true) {
+            for (int i = p * p; i <= n; i += p)               // Partially Accepted
+                prime[i] = false;
+        }
+    }
+    for (int p = 2; p <= n; p++){
+		if (prime[p] && n%p==0)return p;
+	}
+	return ans=0;
+}
+
+int main(){
+	int t;
+    cin>>t;
+	while(t--){
+		int r;
+		cin>>r;
+		int x = soe(r);
+		cout<<r-x<<endl;
+	}
+}
