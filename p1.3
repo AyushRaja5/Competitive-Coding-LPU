@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool prime(int n){
+	  if (n <= 1)
+        return false;
+    for (int i = 2; i <= sqrt(n); i++)
+        if (n % i == 0)
+            return false;
+ 
+    return true;
+}
+int diff(vector<int> v, int n){
+	int x = 0, y = 0;
+	sort(v.begin(),v.end());
+	for(int i=0;i<n;i++){
+		if(prime(v[i])){
+			x = v[i];
+			break;
+		}
+	}
+	for(int i=n-1;i>=0;i--){
+		if(prime(v[i])){
+			y = v[i];
+			break;
+		}
+	}
+	if(x==0 && y==0) return -1;
+	return abs(y-x);
+}
+
+int main(){
+    int n,x;
+	cin>>n;
+	vector<int> v;
+	for(int i=0;i<n;i++){
+		cin>>x;
+		v.push_back(x);
+	}
+	cout<<diff(v,v.size());
+}
